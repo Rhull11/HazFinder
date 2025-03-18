@@ -4,4 +4,6 @@ public record Item(
         Integer id,
         String name,
         String ingredients
-) {}
+)
+{
+}

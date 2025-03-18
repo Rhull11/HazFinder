@@ -13,7 +13,8 @@ public class ItemController
 {
     private final ItemRepository itemRepository;
 
-    public ItemController(ItemRepository itemRepository){
+    public ItemController(ItemRepository itemRepository)
+    {
         this.itemRepository = itemRepository;
     }
 
@@ -24,9 +25,10 @@ public class ItemController
     }
 
     @GetMapping("/{id}")
-    Item findById(@PathVariable Integer id){
+    Item findById(@PathVariable Integer id)
+    {
         Optional<Item> item = itemRepository.findById(id);
-        if(item.isEmpty())
+        if (item.isEmpty())
         {
             throw new ItemNotFoundException();
         }
@@ -46,7 +48,7 @@ public class ItemController
     @PutMapping("/{id}")
     void update(@RequestBody Item item, @PathVariable Integer id)
     {
-        itemRepository.update(item,id);
+        itemRepository.update(item, id);
     }
 
     // delete

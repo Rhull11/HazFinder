@@ -13,12 +13,12 @@ import org.springframework.context.annotation.Bean;
 public class Application
 {
 
-	private static final Logger log = LoggerFactory.getLogger(Application.class);
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-	public static void main(String[] args)
-	{
-		ConfigurableApplicationContext context =  SpringApplication.run(Application.class, args);
+    public static void main(String[] args)
+    {
+        ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 
-		log.info("Application started successfully!");
-	}
+        log.info("Application started successfully!");
+    }
 }
