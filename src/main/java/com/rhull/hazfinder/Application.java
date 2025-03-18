@@ -21,13 +21,4 @@ public class Application
 
 		log.info("Application started successfully!");
 	}
-
-	@Bean
-	CommandLineRunner runner(){
-		return args -> {
-			Item item = new Item(1, "water", "water");
-			log.info("Item: " + item);
-		};
-	}
-
 }
