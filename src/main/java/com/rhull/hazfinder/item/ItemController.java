@@ -18,7 +18,8 @@ public class ItemController
     }
 
     @GetMapping("")
-    List<Item> findAll(){
+    List<Item> findAll()
+    {
         return itemRepository.findAll();
     }
 
