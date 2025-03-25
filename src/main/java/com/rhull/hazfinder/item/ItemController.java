@@ -2,7 +2,6 @@ package com.rhull.hazfinder.item;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +39,7 @@ public class ItemController
     @PostMapping("")
     void create(@RequestBody Item item)
     {
-        itemRepository.create(item);
+        itemRepository.save(item);
     }
 
     // put
@@ -48,7 +47,7 @@ public class ItemController
     @PutMapping("/{id}")
     void update(@RequestBody Item item, @PathVariable Integer id)
     {
-        itemRepository.update(item, id);
+        itemRepository.save(item);
     }
 
     // delete
@@ -56,6 +55,6 @@ public class ItemController
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id)
     {
-        itemRepository.delete(id);
+        itemRepository.delete(itemRepository.findById(id).get());
     }
 }
