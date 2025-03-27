@@ -67,6 +67,20 @@ class ItemControllerTest
     }
 
     @Test
+    void shouldFindItemByAsin() throws Exception
+    {
+        Item item = items.get(0);
+        when(repository.findByAsin("B0KLA57")).thenReturn(Optional.of(item));
+        mvc.perform(get("/hazfinder/api/items/asin/B0KLA57"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id", is(item.id())))
+                .andExpect(jsonPath("$.asin", is(item.asin())))
+                .andExpect(jsonPath("$.name", is(item.name())))
+                .andExpect(jsonPath("$.ingredients", is(item.ingredients())));
+
+    }
+
+    @Test
     void shouldReturnNotFoundWithInvalidId() throws Exception
     {
         mvc.perform(get("/hazfinder/api/items/456196854"))

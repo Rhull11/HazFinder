@@ -36,6 +36,17 @@ public class ItemController
         return item.get();
     }
 
+    @GetMapping("/asin/{asin}")
+    Item findByAsin(@PathVariable String asin)
+    {
+        Optional<Item> item = itemRepository.findByAsin(asin);
+        if (item.isEmpty())
+        {
+            throw new ItemNotFoundException();
+        }
+        return item.get();
+    }
+
     // post
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
