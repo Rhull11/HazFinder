@@ -1,5 +1,3 @@
-DROP TABLE Item;
-
 CREATE TABLE IF NOT EXISTS Item (
     id INT NOT NULL,
     asin varchar(250) NOT NULL,
