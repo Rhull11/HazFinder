@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
@@ -26,6 +27,7 @@ public class ItemController
     @GetMapping("/{id}")
     Item findById(@PathVariable Integer id)
     {
+
         Optional<Item> item = itemRepository.findById(id);
         if (item.isEmpty())
         {
@@ -55,6 +57,13 @@ public class ItemController
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id)
     {
-        itemRepository.delete(itemRepository.findById(id).get());
+        try
+        {
+            itemRepository.delete(itemRepository.findById(id).get());
+        }
+        catch (NoSuchElementException ex)
+        {
+            throw new ItemNotFoundException();
+        }
     }
 }
