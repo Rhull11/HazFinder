@@ -39,8 +39,8 @@ class ItemControllerTest
         items.add(new Item(1,
                 "B0KLA57",
                 "Test Item",
-                "Test Ingredients",
-                0));
+                "Test Ingredients"
+                ));
     }
 
     @Test

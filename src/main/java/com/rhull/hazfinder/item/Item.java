@@ -8,9 +8,7 @@ public record Item(
         Integer id,
         String asin,
         String name,
-        String ingredients,
-        @Version
-        Integer version
+        String ingredients
 )
 {
 }
