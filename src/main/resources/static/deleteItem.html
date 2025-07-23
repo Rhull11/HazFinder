@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HazFinder</title>
+</head>
+<body>
+    <h1>Delete Item</h1>
+    <form id="delete-data-form">
+        <input id="deleteById" type="text" placeholder="ID">
+        <input id="deleteByAsin" type="text" placeholder="ASIN">
+        <button id="delete-item-btn" type="submit">Delete Item</button>
+        <button id="get-all-items" type="button">Search All</button>
+    </form>
+    <a href="/createItem.html">Add Item</a>
+    <a href="/editItem.html">Edit Item</a>
+    <a href="/deleteItem.html">Delete Item</a>
+    <a href="/index.html">Home</a>
+
+    <table id="dataTable" border="1px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Thumbnail</th>
+                <th>ASIN</th>
+                <th>Name</th>
+                <th>Ingredients</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>

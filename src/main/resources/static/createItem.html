@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HazFinder</title>
+</head>
+<body>
+    <h1>Add Item</h1>
+    <form id="add-data-form">
+        <input id="thumnail-input" type="text" placeholder="Thumbnail">
+        <input id="asin-txt-input" type="text" placeholder="ASIN">
+        <input id="name-txt-input" type="text" placeholder="Item name">
+        <input id="ingredients-txt-input" type="text" placeholder="ingredients">
+        <button id="add-item-btn" type="submit">Add Item</button>
+        <button id="get-all-items" type="button">Search All</button>
+    </form> 
+    <a href="/createItem.html">Add Item</a>
+    <a href="/editItem.html">Edit Item</a>
+    <a href="/deleteItem.html">Delete Item</a>
+    <a href="/index.html">Home</a>
+
+    <table id="dataTable" border="1px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Thumbnail</th>
+                <th>ASIN</th>
+                <th>Name</th>
+                <th>Ingredients</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>

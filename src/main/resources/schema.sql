@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS Item (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    thumbnail TEXT,
+    asin VARCHAR(250) NOT NULL,
+    name VARCHAR(250) NOT NULL,
+    ingredients TEXT NOT NULL,
+    PRIMARY KEY (id)
+);

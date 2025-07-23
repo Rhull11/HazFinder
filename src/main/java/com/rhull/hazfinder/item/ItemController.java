@@ -2,9 +2,9 @@ package com.rhull.hazfinder.item;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
@@ -13,19 +13,34 @@ public class ItemController
 {
     private final ItemRepository itemRepository;
 
-    public ItemController(ItemRepository itemRepository){
+    public ItemController(ItemRepository itemRepository)
+    {
         this.itemRepository = itemRepository;
     }
 
     @GetMapping("")
-    List<Item> findAll(){
+    List<Item> findAll()
+    {
         return itemRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    Item findById(@PathVariable Integer id){
+    Item findById(@PathVariable Integer id)
+    {
+
         Optional<Item> item = itemRepository.findById(id);
-        if(item.isEmpty())
+        if (item.isEmpty())
+        {
+            throw new ItemNotFoundException();
+        }
+        return item.get();
+    }
+
+    @GetMapping("/asin/{asin}")
+    Item findByAsin(@PathVariable String asin)
+    {
+        Optional<Item> item = itemRepository.findByAsin(asin);
+        if (item.isEmpty())
         {
             throw new ItemNotFoundException();
         }
@@ -37,7 +52,7 @@ public class ItemController
     @PostMapping("")
     void create(@RequestBody Item item)
     {
-        itemRepository.create(item);
+        itemRepository.save(item);
     }
 
     // put
@@ -45,7 +60,7 @@ public class ItemController
     @PutMapping("/{id}")
     void update(@RequestBody Item item, @PathVariable Integer id)
     {
-        itemRepository.update(item,id);
+        itemRepository.save(item);
     }
 
     // delete
@@ -53,6 +68,13 @@ public class ItemController
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id)
     {
-        itemRepository.delete(id);
+        try
+        {
+            itemRepository.delete(itemRepository.findById(id).get());
+        }
+        catch (NoSuchElementException ex)
+        {
+            throw new ItemNotFoundException();
+        }
     }
 }
