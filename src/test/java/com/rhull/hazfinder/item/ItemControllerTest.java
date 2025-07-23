@@ -37,6 +37,7 @@ class ItemControllerTest
     void setUp()
     {
         items.add(new Item(1,
+                "/uploads/item.jpg",
                 "B0KLA57",
                 "Test Item",
                 "Test Ingredients"
