@@ -7,8 +7,8 @@
 <body>
     <h1>Welcome to HazFinder!</h1>
     <input type="text" placeholder="Search by ASIN or ID...">
-    <button id="fetchData">Search</button>
-    <button id="fetchAllData">Search All</button>
+    <button id="fetch-one-item" type="button">Search</button>
+    <button id="get-all-items" type="button">Search All</button>
     <a href="/createItem.html">Add Item</a>
     <a href="/editItem.html">Edit Item</a>
     <a href="/deleteItem.html">Delete Item</a>
@@ -17,6 +17,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Thumbnail</th>
                 <th>ASIN</th>
                 <th>Name</th>
                 <th>Ingredients</th>

@@ -6,13 +6,13 @@
 </head>
 <body>
     <h1>Add Item</h1>
-    <form id="dataForm">
-        <input id="id-txt-input" type="text" placeholder="ID">
+    <form id="add-data-form">
+        <input id="thumnail-input" type="text" placeholder="Thumbnail">
         <input id="asin-txt-input" type="text" placeholder="ASIN">
         <input id="name-txt-input" type="text" placeholder="Item name">
         <input id="ingredients-txt-input" type="text" placeholder="ingredients">
         <button id="add-item-btn" type="submit">Add Item</button>
-        <button id="fetchAllData">Search All</button>
+        <button id="get-all-items" type="button">Search All</button>
     </form> 
     <a href="/createItem.html">Add Item</a>
     <a href="/editItem.html">Edit Item</a>
@@ -23,6 +23,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Thumbnail</th>
                 <th>ASIN</th>
                 <th>Name</th>
                 <th>Ingredients</th>
